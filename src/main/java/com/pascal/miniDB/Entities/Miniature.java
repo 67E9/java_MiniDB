@@ -3,6 +3,7 @@ package com.pascal.miniDB.Entities;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -20,9 +21,13 @@ public class Miniature {
 
     private String description;
 
-    @ManyToOne
-    @JoinColumn(name = "game_id")
-    Game game;
+    @ManyToMany
+    @JoinTable(
+            name = "belongsTo",
+            joinColumns = @JoinColumn(name = "miniature_id"),
+            inverseJoinColumns = @JoinColumn(name = "game_id")
+    )
+    List<Game> games;
 
     @ManyToOne
     @JoinColumn(name = "manufacturer_id")

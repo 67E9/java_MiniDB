@@ -20,7 +20,7 @@ public class Game {
 
     private String name;
 
-    @OneToMany (mappedBy = "game")
+    @ManyToMany (mappedBy = "games")
     List<Miniature> miniatures;
 
 }

@@ -55,6 +55,6 @@ public class MiniatureServiceImpl implements MiniatureService{
 
     @Override
     public void addGameToMiniature(Miniature miniature, Game game) {
-        miniature.setGame(game);
+        miniature.getGames().add(game);
     }
 }
