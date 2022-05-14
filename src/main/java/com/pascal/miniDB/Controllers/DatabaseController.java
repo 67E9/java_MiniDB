@@ -67,12 +67,6 @@ public class DatabaseController implements CommandLineRunner {
         //CommandlinerRunner method for test:
     @Override
     public void run(String... args) throws Exception {
-//        Miniature kataphrakt = new Miniature(null, "Kataphrakt", "Byzantischer Kataprakt aus Saga", null);
-//        Miniature berserker = new Miniature(null, "Berserker", "viking Berserker for Saga", null);
-//
-//        Game saga = new Game (null, "saga", null);
-//
-//        addGameToMiniature(berserker,saga);
 
     }
 }

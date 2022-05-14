@@ -1,1 +1,0 @@
-insert into miniature (name, description) values ('frostgrave knight', 'plactic knight for frostgrave');

@@ -3,6 +3,7 @@ package com.pascal.miniDB.Entities;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.List;
 
 @Entity
@@ -32,6 +33,9 @@ public class Miniature {
     @ManyToOne
     @JoinColumn(name = "manufacturer_id")
     Manufacturer manufacturer;
+
+    @ManyToMany(mappedBy = "miniatures")
+    List<MiniCollection> miniCollections;
 
     //Genre genre
 
