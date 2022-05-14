@@ -1,10 +1,10 @@
 package com.pascal.miniDB.Controllers;
 
+import com.pascal.miniDB.Entities.Faction;
 import com.pascal.miniDB.Entities.Game;
+import com.pascal.miniDB.Entities.Manufacturer;
 import com.pascal.miniDB.Entities.Miniature;
-import com.pascal.miniDB.Services.GameService;
-import com.pascal.miniDB.Services.ManufacturerService;
-import com.pascal.miniDB.Services.MiniatureService;
+import com.pascal.miniDB.Services.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Controller;
 
@@ -16,10 +16,15 @@ public class DatabaseController implements CommandLineRunner {
     MiniatureService miniatureService;
     GameService gameService;
     ManufacturerService manufacturerService;
+    MiniCollectionService miniCollectionService;
+    FactionService factionService;
 
-    public DatabaseController(MiniatureService miniatureService, GameService gameService) {
+    public DatabaseController(MiniatureService miniatureService, GameService gameService, ManufacturerService manufacturerService, MiniCollectionService miniCollectionService, FactionService factionService) {
         this.miniatureService = miniatureService;
         this.gameService = gameService;
+        this.manufacturerService = manufacturerService;
+        this.miniCollectionService = miniCollectionService;
+        this.factionService = factionService;
     }
 
     //Miniature CRUD Methods
@@ -63,6 +68,15 @@ public class DatabaseController implements CommandLineRunner {
     public void addGameToMiniature(Miniature miniature, Game game){
         miniatureService.addGameToMiniature(miniature, game);
     }
+
+    public void addManufacturerToMiniature(Miniature miniature, Manufacturer manufacturer) {
+        miniatureService.addManufacturerToMiniature(miniature,manufacturer);
+    }
+
+    public void addFactionToMiniature (Miniature miniature, Faction faction){
+        miniatureService.addFactionToMiniature(miniature,faction);
+    }
+
 
         //CommandlinerRunner method for test:
     @Override

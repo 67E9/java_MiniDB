@@ -1,6 +1,8 @@
 package com.pascal.miniDB.Services;
 
+import com.pascal.miniDB.Entities.Faction;
 import com.pascal.miniDB.Entities.Game;
+import com.pascal.miniDB.Entities.Manufacturer;
 import com.pascal.miniDB.Entities.Miniature;
 
 import java.util.List;
@@ -19,4 +21,7 @@ public interface MiniatureService {
 
     void addGameToMiniature (Miniature miniature, Game game);
 
+    void addManufacturerToMiniature (Miniature miniature, Manufacturer manufacturer);
+
+    void addFactionToMiniature (Miniature miniature, Faction faction);
 }

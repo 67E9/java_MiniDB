@@ -1,6 +1,8 @@
 package com.pascal.miniDB.Services;
 
+import com.pascal.miniDB.Entities.Faction;
 import com.pascal.miniDB.Entities.Game;
+import com.pascal.miniDB.Entities.Manufacturer;
 import com.pascal.miniDB.Entities.Miniature;
 import com.pascal.miniDB.Repositories.MiniatureRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -56,5 +58,15 @@ public class MiniatureServiceImpl implements MiniatureService{
     @Override
     public void addGameToMiniature(Miniature miniature, Game game) {
         miniature.getGames().add(game);
+    }
+
+    @Override
+    public void addManufacturerToMiniature(Miniature miniature, Manufacturer manufacturer) {
+        miniature.setManufacturer(manufacturer);
+    }
+
+    @Override
+    public void addFactionToMiniature(Miniature miniature, Faction faction) {
+        miniature.setFaction(faction);
     }
 }

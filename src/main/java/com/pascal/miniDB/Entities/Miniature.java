@@ -3,7 +3,6 @@ package com.pascal.miniDB.Entities;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.Collection;
 import java.util.List;
 
 @Entity
@@ -36,6 +35,10 @@ public class Miniature {
 
     @ManyToMany(mappedBy = "miniatures")
     List<MiniCollection> miniCollections;
+
+    @ManyToOne
+    @JoinColumn(name = "faction_id")
+    Faction faction;
 
     //Genre genre
 

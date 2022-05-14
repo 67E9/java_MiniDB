@@ -14,4 +14,6 @@ public class ManufacturerServiceImpl implements ManufacturerService {
     public Manufacturer findManufacturerById(Integer id) {
         return manufacturerRepository.findById(id).orElse(new Manufacturer());
     }
+
+
 }

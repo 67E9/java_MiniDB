@@ -8,23 +8,21 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Game {
-
+@Data
+public class Faction {
     @Id
     @Column(nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    Integer id;
 
-    private String name;
+    String name;
 
-    @ManyToMany (mappedBy = "games")
+    @ManyToOne
+    @JoinColumn (name = "game")
+    Game game;
+
+    @OneToMany (mappedBy = "faction")
     List<Miniature> miniatures;
-
-    @OneToMany (mappedBy = "game")
-    List<Faction> faction;
-
 }
-
