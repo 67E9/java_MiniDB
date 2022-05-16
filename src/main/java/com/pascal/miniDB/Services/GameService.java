@@ -6,4 +6,6 @@ public interface GameService {
 
 void addGame(Game game);
 
+Game findGameById(Integer id);
+
 }

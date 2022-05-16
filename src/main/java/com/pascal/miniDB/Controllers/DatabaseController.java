@@ -8,9 +8,11 @@ import com.pascal.miniDB.Services.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Controller;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Controller
+@Transactional
 public class DatabaseController implements CommandLineRunner {
 
     MiniatureService miniatureService;
@@ -57,11 +59,22 @@ public class DatabaseController implements CommandLineRunner {
     //Game CRUD Methods
 
     //CREATE
-
     public void addGame(Game game) {
         gameService.addGame(game);
     }
 
+    //READ
+    public Game findGameById(Integer id){
+        return gameService.findGameById(id);
+    }
+
+    //Manufacturer GRUD methods
+
+    //READ
+
+    public Manufacturer findManufacturerByID(Integer id){
+        return manufacturerService.findManufacturerById(id);
+    }
 
     //LINKING METHODS
 
@@ -77,10 +90,24 @@ public class DatabaseController implements CommandLineRunner {
         miniatureService.addFactionToMiniature(miniature,faction);
     }
 
+    public void addGameToFaction(Faction faction, Game game){
+        factionService.addGameToFaction(faction, game);
+    }
 
-        //CommandlinerRunner method for test:
+    //CommandlinerRunner method for test:
     @Override
     public void run(String... args) throws Exception {
+    var saga = findGameById(1);
+    var infinity = findGameById(2);
+    var grippingBeast = findManufacturerByID(1);
+    var corvusBelli = findManufacturerByID(2);
+    var berserker = findMiniatureById(1);
+    var alguacil = findMiniatureById(2);
+
+    addGameToMiniature(berserker,saga);
+    addGameToMiniature(alguacil,infinity);
+    addManufacturerToMiniature(berserker, grippingBeast);
+    addManufacturerToMiniature(alguacil, corvusBelli);
 
     }
 }

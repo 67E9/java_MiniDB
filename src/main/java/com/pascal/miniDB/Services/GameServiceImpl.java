@@ -6,12 +6,20 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+
+@Transactional
 @Service
 @Slf4j
 public class GameServiceImpl implements GameService {
 
     @Autowired
     GameRepository gameRepository;
+
+    @Override
+    public Game findGameById(Integer id) {
+        return gameRepository.findById(id).orElse(new Game());
+    }
 
     @Override
     public void addGame(Game game) {
@@ -25,4 +33,5 @@ public class GameServiceImpl implements GameService {
             gameRepository.save(game);
         }
     }
+
 }

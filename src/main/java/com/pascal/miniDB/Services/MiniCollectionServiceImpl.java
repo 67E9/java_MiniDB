@@ -6,6 +6,9 @@ import com.pascal.miniDB.Repositories.MiniCollectionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+
+@Transactional
 @Service
 public class MiniCollectionServiceImpl implements MiniCollectionService {
     @Autowired

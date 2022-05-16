@@ -1,5 +1,6 @@
 package com.pascal.miniDB.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -23,7 +24,7 @@ public class Miniature {
 
     @ManyToMany
     @JoinTable(
-            name = "belongsTo",
+            name = "mini_game",
             joinColumns = @JoinColumn(name = "miniature_id"),
             inverseJoinColumns = @JoinColumn(name = "game_id")
     )
@@ -34,6 +35,7 @@ public class Miniature {
     Manufacturer manufacturer;
 
     @ManyToMany(mappedBy = "miniatures")
+    @JsonIgnore
     List<MiniCollection> miniCollections;
 
     @ManyToOne

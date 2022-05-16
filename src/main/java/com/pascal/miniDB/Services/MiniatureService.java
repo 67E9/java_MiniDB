@@ -13,6 +13,8 @@ public interface MiniatureService {
 
     Miniature findMiniatureById(Integer id);
 
+    List<Miniature> findAllMiniatures();
+
     List<Miniature> findMiniaturesByNameContainingIgnoreCase(String name);
 
     void updateMiniature(Miniature miniature);

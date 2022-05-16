@@ -9,8 +9,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
+@Transactional
 @Slf4j
 @Service
 public class MiniatureServiceImpl implements MiniatureService{
@@ -34,6 +38,13 @@ public class MiniatureServiceImpl implements MiniatureService{
     @Override
     public Miniature findMiniatureById(Integer id) {
         return miniatureRepository.findById(id).orElse(new Miniature());
+    }
+
+    @Override
+    public List<Miniature> findAllMiniatures() {
+        return StreamSupport.stream(miniatureRepository
+                .findAll().spliterator(), false)
+                .collect(Collectors.toList());
     }
 
     @Override

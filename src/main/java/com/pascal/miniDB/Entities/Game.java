@@ -1,5 +1,6 @@
 package com.pascal.miniDB.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,6 +22,7 @@ public class Game {
     private String name;
 
     @ManyToMany (mappedBy = "games")
+    @JsonIgnore
     List<Miniature> miniatures;
 
     @OneToMany (mappedBy = "game")

@@ -25,7 +25,7 @@ public class MiniCollection {
 
     @ManyToMany
     @JoinTable (
-            name = "contains",
+            name = "collection_mini",
             joinColumns = @JoinColumn(name = "miniature_id"),
             inverseJoinColumns = @JoinColumn (name = "miniCollection_id")
     )
